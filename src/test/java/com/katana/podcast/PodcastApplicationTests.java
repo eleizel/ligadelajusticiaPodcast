@@ -1,4 +1,4 @@
-package com.katana.dicecast;
+package com.katana.podcast;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

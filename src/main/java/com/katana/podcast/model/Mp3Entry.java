@@ -1,4 +1,4 @@
-package com.katana.dicecast.model;
+package com.katana.podcast.model;
 
 import java.io.File;
 

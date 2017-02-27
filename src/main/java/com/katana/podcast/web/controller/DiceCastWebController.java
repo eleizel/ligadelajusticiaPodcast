@@ -1,4 +1,4 @@
-package com.katana.dicecast.web.controller;
+package com.katana.podcast.web.controller;
 
 
 import java.io.File;
@@ -20,10 +20,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.katana.dicecast.model.*;
-import com.katana.dicecast.utils.*;
-import com.katana.dicecast.repository.*;
-
+import com.katana.podcast.model.*;
+import com.katana.podcast.repository.*;
+import com.katana.podcast.utils.*;
 import com.sun.syndication.feed.synd.SyndEnclosure;
 import com.sun.syndication.feed.synd.SyndEntryImpl;
 import com.sun.syndication.feed.synd.SyndFeed;

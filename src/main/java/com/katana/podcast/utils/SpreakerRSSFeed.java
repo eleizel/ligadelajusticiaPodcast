@@ -1,4 +1,4 @@
-package com.katana.dicecast.utils;
+package com.katana.podcast.utils;
 
 import java.io.IOException;
 import java.net.URL;

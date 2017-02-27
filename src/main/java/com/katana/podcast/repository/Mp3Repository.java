@@ -1,3 +1,4 @@
+package com.katana.podcast.repository;
 //package com.katana.dicecast.repository;
 //
 //import org.springframework.data.mongodb.repository.MongoRepository;
