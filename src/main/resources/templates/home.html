@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{/css/main.css}"/>
+</head>
+<body>
+	<div class="header">
+		<h1>Liga de la Justicia - El Podcast</h1>
+	</div>
+	<div class="menuHolder">
+		<h2>Menu</h2>
+		<div class="menu">
+			<div th:each="menuItem,iterStat : ${menu.options}" class="menuItem" th:classappend="${iterStat.odd}? 'odd'">
+				<a href="/index.html" th:href="@{${menuItem.url}}"><span th:text="${menuItem.displayName}"></span></a>
+			</div>
+		</div>
+	</div>
+	<div class="body">
+		<h2>¡Bienvenido!</h2>
+	</div>
+</body>
+</html>

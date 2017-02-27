@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "rss.url",
+  "type": "java.lang.String",
+  "description": "Url for the Spreaker Feed"
+}]}

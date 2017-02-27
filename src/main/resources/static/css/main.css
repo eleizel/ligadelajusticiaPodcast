@@ -1,0 +1,79 @@
+body h1 {
+	margin-left: 1em;
+}
+
+.header {
+	border-width: 0.2em;
+	border-style: solid;
+	margin-bottom: 0.2em;
+	width: 81.4em;
+}
+
+.menuHolder {
+	float: left;
+	text-align: left;
+	border-width: 0.2em;
+	border-style: solid;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+	width: 10em;
+	height: 500px;
+}
+
+.menuItem {
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+	margin-top: 0.1em;
+	border-style: solid;
+    border-width: 0.1em;
+    background-color: #b0b0b0;
+    padding: 0.2em 0.2em 0.2em 0.2em;
+}
+
+.menuItem.odd {
+	background-color: #dadada;
+}
+
+.menuItem:hover {
+	background-color: #6a6a6a;
+	text-decoration: underline;
+}
+
+.menuItem a {
+	color: black;
+	text-decoration: none;
+}
+
+.body {
+	float: left;
+	border-width: 0.2em;
+	border-style: solid;
+	padding: 0.2em 0.2em 0.2em 0.2em;
+	margin-left: 0.2em;
+	width: 70em;
+	height: 500px;
+}
+
+.body.error {
+	width: 81.4em;
+	margin-left: 0em;
+	padding: 0em;
+}
+
+.body.podcast {
+	overflow: auto;
+}
+
+h2.error, h3.error {
+	margin-left: 1em;
+}
+
+.imgHolder img {
+	width: 10%;
+	float: left;
+	margin-right: 1em;
+}
+
+.entryTitle {
+	text-decoration: underline;
+	font-weight: bold;
+}
