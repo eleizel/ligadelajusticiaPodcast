@@ -6,6 +6,7 @@ public class Menu {
 	public Menu() {
 		MenuOption podcast = new MenuOption("Podcast", "/podcast");
 		MenuOption home = new MenuOption("Home", "/home");
+		MenuOption multimedia = new MenuOption("Multimedia", "/multimedia");
 		MenuOption contacto = new MenuOption("Contáctanos", "/contactos");
 		MenuOption[] options = {home,podcast,contacto};
 		this.setOptions(options);

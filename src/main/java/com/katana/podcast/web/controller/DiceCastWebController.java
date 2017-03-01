@@ -12,11 +12,15 @@ package com.katana.podcast.web.controller;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -69,7 +73,7 @@ public class DiceCastWebController {
     			simpleEntry.setTitle("No hay título");
     		}
     		if (entry!=null && entry.getDescription()!=null && entry.getDescription().getValue()!=null) {
-    			simpleEntry.setDescription(entry.getDescription().getValue());
+    			simpleEntry.setDescription(parseDescriptionURLs(entry.getDescription().getValue()));
 	    	} else {
 				simpleEntry.setDescription("No hay descripción");
 			}
@@ -143,7 +147,7 @@ public class DiceCastWebController {
     	model.addAttribute("entryList", simpleEntryList);
     	return "podcast";
     }
-    
+
 	@RequestMapping("/podcastEntry")
     public String printPodcastEntry (Model model, 
     		@RequestParam(value="title", required=false, defaultValue="TÃ­tulo") String title,
@@ -165,6 +169,11 @@ public class DiceCastWebController {
 	public String contactos(Model model) {
 		model.addAttribute("menu", menu);
 		return "contactos";
+	}
+	
+	private String parseDescriptionURLs(String description) {
+				
+		return description;
 	}
 	
 }
