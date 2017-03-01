@@ -1,27 +1,27 @@
 package com.katana.podcast.web.controller;
 
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+//import java.io.File;
+//import java.io.FileOutputStream;
+//import java.io.IOException;
+//import java.io.InputStream;
+//import java.io.OutputStream;
+//import java.net.MalformedURLException;
+//import java.net.URL;
+//import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.katana.podcast.model.*;
-import com.katana.podcast.repository.*;
+//import com.katana.podcast.repository.*;
 import com.katana.podcast.utils.*;
 import com.sun.syndication.feed.synd.SyndEnclosure;
 import com.sun.syndication.feed.synd.SyndEntryImpl;
@@ -40,9 +40,18 @@ public class DiceCastWebController {
 //	@Autowired
 //	Mp3Repository repositoryMp3;
 
-    @RequestMapping("/home") 
+    @SuppressWarnings("unchecked")
+	@RequestMapping("/home") 
     public String serveHome (Model model) {
+    	SyndFeed myFeed = feed.getFeed();
+    	SimpleRSSEntry entry = null;
+    	List<SyndEntryImpl> entryList = myFeed.getEntries();
+    	if (!entryList.isEmpty()) {
+    		entry = new SimpleRSSEntry(entryList.get(0));
+    	}
+    	model.addAttribute("lastEntry",entry);
     	model.addAttribute("menu", menu);
+    	
     	return "home";
     }
     
@@ -57,12 +66,12 @@ public class DiceCastWebController {
     		if (entry!=null && entry.getTitle()!=null) {
     			simpleEntry.setTitle(entry.getTitle());
     		} else {
-    			simpleEntry.setTitle("No hay tÃ­tulo");
+    			simpleEntry.setTitle("No hay título");
     		}
     		if (entry!=null && entry.getDescription()!=null && entry.getDescription().getValue()!=null) {
     			simpleEntry.setDescription(entry.getDescription().getValue());
 	    	} else {
-				simpleEntry.setDescription("No hay descripciÃ³n");
+				simpleEntry.setDescription("No hay descripción");
 			}
     		if (entry!=null && entry.getLink()!=null) {
     			simpleEntry.setLink(entry.getLink());

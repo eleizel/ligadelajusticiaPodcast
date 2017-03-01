@@ -4,8 +4,6 @@
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{/css/main.css}"/>
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{/css/main.css}"/>
-    
 </head>
 <body>
 	<script>
@@ -13,11 +11,11 @@
 	  	var as = audiojs.createAll();
 	  });
 	</script>
-	<div class="header">
-		<h1>Podcast</h1>
-	</div>
 	<div class="menuHolder">
-		<h2>Menu</h2>
+		<div class="logo">
+			<img src="../../img/logo.png" alt="logo liga"/>
+			<h1>Liga de la Justicia <span>El Podcast</span></h1>
+		</div>
 		<div class="menu">
 			<div th:each="menuItem,iterStat : ${menu.options}" class="menuItem" th:classappend="${iterStat.odd}? 'odd'">
 				<a href="/index.html" th:href="@{${menuItem.url}}"><span th:text="${menuItem.displayName}"></span></a>
@@ -25,18 +23,21 @@
 		</div>
 	</div>
 	<div class="body podcast">
-		<div class="imgHolder">
+		<div class="hero">
 			<img alt="Liga de la Justicia Podcast" src="" th:src="${image}"/>
+			<div class="hero-description">
+				<h2 th:text="${title}">Título</h2>
+				<p th:text="${description}">Descripción</p>
+			</div>
 		</div>
-    	<h2 th:text="${title}">Título</h2>
-    	<p th:text="${description}">Descripción</p>
     	<div class="entryList">
 			<div th:each="entryItem,iterStat : ${entryList}" class="entryItem" th:classappend="${iterStat.odd}? 'odd'">
 				<p th:text="${entryItem.title}" class="entryTitle"></p>
-				<p th:text="${entryItem.description}"></p>
-				<p>Escuchalo en <a target="_blank" href="/index.html" th:href="@{${entryItem.link}}"> Spreaker</a> o descárgalo <a target="_blank" href="/index.html" th:href="@{${entryItem.mp3}}"> aquí </a></p>
-				Ver entrada <a href="/index.html" th:href="@{/podcastEntry(title=${entryItem.title},description=${entryItem.description},link=${entryItem.link},mp3=${entryItem.mp3})}"> aquí </a>		
-				<hr/>
+				<p th:text="${entryItem.description}" class="entryDesc"></p>
+				<div class="entryMeta">
+					<p>Escuchalo en <a target="_blank" href="/index.html" th:href="@{${entryItem.link}}"> Spreaker</a> o descárgalo <a target="_blank" href="/index.html" th:href="@{${entryItem.mp3}}"> aquí </a></p>
+					<a class="button" href="/index.html" th:href="@{/podcastEntry(title=${entryItem.title},description=${entryItem.description},link=${entryItem.link},mp3=${entryItem.mp3})}"> Ver entrada </a>
+				</div>
 			</div>
 		</div>
     </div>

@@ -4,21 +4,42 @@
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{/css/main.css}"/>
+    <script src="../../js/audio.min.js" th:src="@{/js/audio.min.js}"></script>
 </head>
 <body>
-	<div class="header">
-		<h1>Liga de la Justicia - El Podcast</h1>
-	</div>
+	<script>
+		audiojs.events.ready(function() {
+	  		var as = audiojs.createAll();
+		});
+	</script>
 	<div class="menuHolder">
-		<h2>Menu</h2>
+		<div class="logo">
+			<img src="../../img/logo.png" alt="logo liga"/>
+			<a href="/home"><h1>Liga de la Justicia <span>El Podcast</span></h1></a>
+		</div>
 		<div class="menu">
 			<div th:each="menuItem,iterStat : ${menu.options}" class="menuItem" th:classappend="${iterStat.odd}? 'odd'">
 				<a href="/index.html" th:href="@{${menuItem.url}}"><span th:text="${menuItem.displayName}"></span></a>
 			</div>
 		</div>
 	</div>
-	<div class="body">
-		<h2>¡Bienvenido!</h2>
+	<div class="body welcome">
+		<h2>¡Bienvenides!</h2>
+		<h3>Puedes escuchar nuestro último episodio aquí <img alt="aqui" src="../../img/aqui.png"/></h3>
+		<div class="entryList">
+			<div class="entryItem">
+				<p th:text="${lastEntry.title}" class="entryTitle"></p>
+				<p th:text="${lastEntry.description}" class="entryDesc"></p>
+				<p>
+					<audio>
+						<source th:src="@{${lastEntry.mp3}}" src="horse.mp3" type="audio/mpeg"></source>
+					</audio>
+				</p>
+				<div class="entryMeta">
+					<p>Escuchalo en <a target="_blank" href="/index.html" th:href="@{${lastEntry.link}}"> Spreaker</a> o descárgalo <a target="_blank" href="/index.html" th:href="@{${lastEntry.mp3}}"> aquí </a></p>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

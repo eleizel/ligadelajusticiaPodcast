@@ -1,56 +1,74 @@
-body h1 {
-	margin-left: 1em;
-}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,600,600i');
 
-.header {
-	border-width: 0.2em;
-	border-style: solid;
-	margin-bottom: 0.2em;
-	width: 81.4em;
+body{
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
 }
-
+a{
+	text-decoration: none;
+	color: #232323;
+	font-weight: 600;
+}
+a:hover{
+	color: #aa2228;
+}
 .menuHolder {
-	float: left;
-	text-align: left;
-	border-width: 0.2em;
-	border-style: solid;
-	padding: 0.2em 0.2em 0.2em 0.2em;
-	width: 10em;
-	height: 500px;
+	background: #232323;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	padding: 0 10%;
+}
+.menuHolder .logo{
+	width: 40%;
+	display: flex;
+}
+.menuHolder .logo img{
+	height: 40px;
+	padding: 5px;
+}
+.menuHolder .logo h1{
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	padding: 7px 0 0 10px;
+}
+.menuHolder .logo h1 span{
+	font-weight: 300;
+}
+
+.menuHolder .menu{
+	width: 40%;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .menuItem {
-	margin-left: 0.2em;
-	margin-right: 0.2em;
-	margin-top: 0.1em;
-	border-style: solid;
-    border-width: 0.1em;
-    background-color: #b0b0b0;
-    padding: 0.2em 0.2em 0.2em 0.2em;
+	font-size: 14px;
+	font-weight: 400;
+	padding: 16px 0 0 0;
+	margin-left: 25px;
 }
 
-.menuItem.odd {
-	background-color: #dadada;
-}
-
-.menuItem:hover {
-	background-color: #6a6a6a;
-	text-decoration: underline;
+.menuItem:hover a{
+	color: #aa2228;
 }
 
 .menuItem a {
-	color: black;
 	text-decoration: none;
+	color: #fff;
 }
 
-.body {
-	float: left;
-	border-width: 0.2em;
-	border-style: solid;
-	padding: 0.2em 0.2em 0.2em 0.2em;
-	margin-left: 0.2em;
-	width: 70em;
+.header {
+	width: 100%;
 	height: 500px;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.body{
+	padding: 50px 10%;
+	width: 80%;
 }
 
 .body.error {
@@ -59,21 +77,100 @@ body h1 {
 	padding: 0em;
 }
 
+.welcome h3 img {
+	vertical-align: top;
+	width: 3%;
+} 
+
+.welcome h3 img {
+	vertical-align: top;
+	width: 3%;
+} 
+
+.welcome .entryList .entryItem {
+	border-top-color: #aa2228;
+    border-top-style: solid;
+    border-bottom-color: #aa2228;
+    border-bottom-style: solid;
+}
+
+/* tipos */
+
+p {
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+/* podcast */
+
 .body.podcast {
 	overflow: auto;
 }
 
-h2.error, h3.error {
-	margin-left: 1em;
+.hero{
+	background: #ccc;
+	display: flex;
+	margin-bottom: 50px;
 }
 
-.imgHolder img {
-	width: 10%;
-	float: left;
-	margin-right: 1em;
+.hero img{
+	width: 195px;
+	height: 195px;
+}
+.hero .hero-description{
+	padding: 10px 30px;
+	color: #3d3d3d;
 }
 
+.entryList{
+}
+.entryItem{
+	background-color: #eaeaea;
+	padding: 10px 25px 25px;
+	margin-bottom: 40px;
+}
 .entryTitle {
-	text-decoration: underline;
-	font-weight: bold;
+	font-weight: 600;
+	font-size: 18px;
+}
+.entryDesc{
+
+}
+.entryMeta{
+	display: flex;
+	justify-content: space-between;
+}
+.entryMeta a.button{
+	background: #aa2228;
+	color: white;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 10px 0;
+	padding: 7px 12px;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+.entryMeta a.button:hover{
+	background: #232323;
+	color: white;
+}
+
+.audiojs{
+/* 	width: 100%; */
+}
+
+@media (max-width: 680px) {
+	.hero,
+	.entryMeta{
+		display: block;
+	}
+	.entryMeta a.button{
+		text-align: center;
+		display: block;
+		margin: 0;
+	}
+	.logo h1{
+		display: none;
+	}
 }

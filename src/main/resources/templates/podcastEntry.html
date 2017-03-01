@@ -4,7 +4,6 @@
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{/css/main.css}"/>
-    <link rel="stylesheet" type="text/css" href="../../css/main.css" th:href="@{/css/main.css}"/>
     <script src="../../js/audio.min.js" th:src="@{/js/audio.min.js}"></script>
 </head>
 <body>
@@ -13,11 +12,11 @@
 	  	var as = audiojs.createAll();
 	  });
 	</script>
-	<div class="header">
-		<h1>Podcast</h1>
-	</div>
 	<div class="menuHolder">
-		<h2>Menu</h2>
+		<div class="logo">
+			<img src="../../img/logo.png" alt="logo liga"/>
+			<h1>Liga de la Justicia <span>El Podcast</span></h1>
+		</div>
 		<div class="menu">
 			<div th:each="menuItem,iterStat : ${menu.options}" class="menuItem" th:classappend="${iterStat.odd}? 'odd'">
 				<a href="/index.html" th:href="@{${menuItem.url}}"><span th:text="${menuItem.displayName}"></span></a>
@@ -27,14 +26,16 @@
 	<div class="body podcast-entry">
     	<div class="entryItem">
 			<h2 th:text="${simpleEntry.title}" class="entryTitle"></h2>
-			<h3 th:text="${simpleEntry.description}"></h3>
-			<p>Escuchalo en <a target="_blank" href="/index.html" th:href="@{${simpleEntry.link}}"> Spreaker</a> o descárgalo <a target="_blank" href="/index.html" th:href="@{${simpleEntry.mp3}}"> aquí </a></p>
+			<p th:text="${simpleEntry.description}" class="entryDesc"></p>
 			<p>
 				<audio>
 					<source th:src="@{${simpleEntry.mp3}}" src="horse.mp3" type="audio/mpeg"></source>
 				</audio>
 			</p>
-			<p><a href="/index.html" th:href="@{/podcast}">Volver</a> al listado</p>
+			<div class="entryMeta">
+				<p>Escuchalo en <a target="_blank" href="/index.html" th:href="@{${simpleEntry.link}}"> Spreaker</a> o descárgalo <a target="_blank" href="/index.html" th:href="@{${simpleEntry.mp3}}"> aquí </a></p>
+				<a class="button" href="/index.html" th:href="@{/podcast}">Volver al listado</a>
+			</div>
 		</div>
     </div>
 </body>
